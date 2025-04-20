@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vivek Communication - Premium Products & Services</title>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts - Poppins & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Swiper JS for Testimonials -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css">
+  
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --secondary: #f59e0b;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --gray-light: #e2e8f0;
+      --success: #10b981;
+      --danger: #ef4444;
+      --gradient: linear-gradient(135deg, var(--primary), #6366f1);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+      background-color: var(--light);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.5);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+    
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray);
+      font-size: 1.1rem;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Header & Navigation */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+    }
+    
+    .header.scrolled {
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 0.6rem 0;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      color: var(--primary);
+      text-decoration: none;
+    }
+    
+    .logo i {
+      margin-right: 0.75rem;
+      font-size: 1.5rem;
+    }
+    
+    .menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .menu li {
+      margin-left: 2rem;
+    }
+    
+    .menu-link {
+      color: var(--dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .menu-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    .menu-link:hover {
+      color: var(--primary);
+    }
+    
+    .menu-link:hover::after {
+      width: 100%;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--dark);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: url('/api/placeholder/1200/800') center/cover;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      max-width: 650px;
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    /* Features Section */
+    .features {
+      background-color: white;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .feature-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      line-height: 80px;
+      background: rgba(59, 130, 246, 0.1);
+    }
+    
+    .feature-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Products Sections */
+    .products {
+      background-color: var(--light);
+    }
+    
+    .product-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      color: var(--gray);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .tab-btn.active {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+    
+    .tab-btn:hover:not(.active) {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--primary);
+    }
+    
+    .product-content {
+      display: none;
+    }
+    
+    .product-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-img {
+      width: 100%;
+      height: 200px;
+      background-color: #f0f0f0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .product-card:hover .product-img img {
+      transform: scale(1.05);
+    }
+    
+    .product-body {
+      padding: 1.5rem;
+    }
+    
+    .product-title {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .product-price {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .product-btn {
+      background: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .product-btn:hover {
+      background: var(--primary-dark);
+      transform: scale(1.1);
+    }
+    
+    /* Services Section */
+    .services {
+      background-color: white;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid var(--gray-light);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 0;
+      background: var(--gradient);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-card:hover::before {
+      height: 100%;
+    }
+    
+    .service-icon {
+      font-size: 2.25rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      background-color: var(--light);
+      overflow: hidden;
+    }
+    
+    .swiper {
+      width: 100%;
+      padding: 2rem 0;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      position: relative;
+      height: 100%;
+    }
+    
+    .testimonial-quote {
+      font-size: 4rem;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      opacity: 0.1;
+      color: var(--primary);
+    }
+    
+    .testimonial-text {
+      margin-bottom: 2rem;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 1rem;
+      background-color: #f0f0f0;
+    }
+    
+    .author-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .author-info h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1.1rem;
+    }
+    
+    .author-info p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      margin-bottom: 0;
+    }
+    
+    /* Contact Section */
+    .contact {
+      background-color: white;
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-top: 0.5rem;
+    }
+    
+    .contact-text h4 {
+      margin-bottom: 0.25rem;
+      font-size: 1.1rem;
+    }
+    
+    .contact-text p {
+      color: var(--gray);
+      margin-bottom: 0;
+    }
+    
+    .contact-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 1.25rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-5px);
+    }
+    
+    .contact-form {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--gray-light);
+      border-radius: 5px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+    
+    textarea.form-control {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .btn-submit {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.75rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .btn-submit:hover {
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-about p {
+      opacity: 0.8;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-heading {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--primary);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-link {
+      margin-bottom: 0.75rem;
+    }
+    
+    .footer-link a {
+      color: white;
+      opacity: 0.7;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-link a:hover {
+      opacity: 1;
+      color: var(--primary);
+      padding-left: 5px;
+    }
+    
+    .footer-contact {
+      list-style: none;
+    }
+    
+    .footer-contact li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-contact li i {
+      color: var(--primary);
+      margin-top: 0.25rem;
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Floating Animation */
+    .floating {
+      animation: floating 3s ease-in-out infinite;
+    }
+    
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 99;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .hero-title {
+        font-size: 2.75rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: all 0.4s ease;
+      }
+      
+      .menu.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+      
+      .menu li {
+        margin: 1rem 0;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      .section-title {
+        font-size: 1.75rem;
+      }
+      
+      .hero-title {
+        font-size: 2.25rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .section {
+        padding: 3rem 0;
+      }
+      
+      .hero-title {
+        font-size: 2rem;
+      }
+      
+      .hero-btns {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <i class="fas fa-mobile-alt"></i>
+          Vivek Communication
+        </a>
+        
+        <ul class="menu" id="menu">
+          <li><a href="#home" class="menu-link">Home</a></li>
+          <li><a href="#features" class="menu-link">About</a></li>
+          <li><a href="#products" class="menu-link">Products</a></li>
+          <li><a href="#services" class="menu-link">Services</a></li>
+          <li><a href="#testimonials" class="menu-link">Testimonials</a></li>
+          <li><a href="#contact" class="menu-link">Contact</a></li>
+        </ul>
+        
+        <button class="menu-toggle" id="menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <!-- Replace with your hero image -->
+    <!-- <img src="your-hero-image.jpg" alt="Vivek Communication Store"> -->
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+        <h1 class="hero-title">Your One-Stop Destination for Quality Products & Services</h1>
+        <p class="hero-subtitle">At Vivek Communication, we blend top-quality products with essential everyday services—making life easier and keeping you connected with the best mobile accessories and electrical items.</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn btn-primary">Explore Products</a>
+          <a href="#contact" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section features" id="features">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Why Choose Us?</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        With years of experience and a commitment to excellence, we provide premium products and essential services that make your life easier.
+      </p>
+      
+      <div class="features-grid">
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-check-circle feature-icon"></i>
+          <h3 class="feature-title">Premium Quality</h3>
+          <p>We offer only the highest quality products, ensuring durability and reliability for all your needs.</p>
+        </div>
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-bolt feature-icon"></i>
+          <h3 class="feature-title">Fast Service</h3>
+          <p>Our quick and efficient services ensure minimal waiting time and maximum convenience.</p>
+        </div>
+        
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+          <i class="fas fa-hand-holding-usd feature-icon"></i>
+          <h3 class="feature-title">Competitive Pricing</h3>
+          <p>Enjoy the best products and services at prices that won't break the bank.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section products" id="products">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Products</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Browse through our extensive range of mobile accessories and daily-use electrical items designed to make your life easier and more convenient.
+      </p>
+      
+      <div class="product-tabs" data-aos="fade-up" data-aos-delay="200">
+        <button class="tab-btn active" data-tab="mobile">Mobile Accessories</button>
+        <button class="tab-btn" data-tab="electrical">Electrical Items</button>
+      </div>
+      
+      <!-- Mobile Accessories -->
+      <div class="product-content active" id="mobile-content">
+        <div class="product-grid">
+          <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="adapter.png" alt="Fast Charger">
+              <!-- PLACE MOBILE CHARGER IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Fast Chargers</h3>
+              <p class="product-desc">Fast and reliable chargers compatible with all major smartphone brands. Keep your device powered up wherever you go.</p>
+              <div class="product-price">
+                <span>From ₹299</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="typec.jpeg" alt="USB Type-C Cable">
+              <!-- PLACE USB TYPE-C CABLE IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">USB Type-C Cables</h3>
+              <p class="product-desc">Durable, high-speed cables for charging and data transfer on newer Android devices and laptops. Built to last.</p>
+              <div class="product-price">
+                <span>From ₹199</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="microusb.jpeg" alt="Micro-USB Cable">
+              <!-- PLACE MICRO-USB CABLE IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Micro-USB Cables</h3>
+              <p class="product-desc">Compact, sturdy cables for older phones, tablets, and accessories. Reliable performance every time and ideal for small devices .</p>
+              <div class="product-price">
+                <span>From ₹149</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="lightning.jpg" alt="Lightning Cable">
+              <!-- PLACE LIGHTNING CABLE IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Lightning Cables</h3>
+              <p class="product-desc">MFi-certified cables designed for iPhones and iPads, ensuring safe and efficient charging for Apple devices.</p>
+              <div class="product-price">
+                <span>From ₹249</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="threeinone.jpg" alt="3-in-1 Cable">
+              <!-- PLACE 3-IN-1 CABLE IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">3-in-1 Cables</h3>
+              <p class="product-desc">Versatile cables with USB-C, Lightning, and Micro-USB connectors—perfect for all your devices in one cable.</p>
+              <div class="product-price">
+                <span>From ₹349</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Electrical Items -->
+      <div class="product-content" id="electrical-content">
+        <div class="product-grid">
+          <div class="product-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="light-bulb.jpeg" alt="LED Light Bulbs">
+              <!-- PLACE LED LIGHT BULB IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">LED Light Bulbs</h3>
+              <p class="product-desc">Energy-saving LED bulbs in various wattages and shapes. Bright, efficient, and long-lasting illumination.</p>
+              <div class="product-price">
+                <span>From ₹99</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="switches.webp" alt="Modern Switches">
+              <!-- PLACE SWITCHES & SOCKETS IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Switches & Sockets</h3>
+              <p class="product-desc">Modern designs and reliable mechanisms to suit every room and purpose. Enhance your home's functionality.</p>
+              <div class="product-price">
+                <span>From ₹149</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="ceiling-fan.jpeg" alt="Ceiling Fan">
+              <!-- PLACE CEILING FAN IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Ceiling Fans</h3>
+              <p class="product-desc">Quiet, powerful fans to keep your home cool and comfortable. Energy-efficient with stylish designs.</p>
+              <div class="product-price">
+                <span>From ₹1,299</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="stand-fan.jpeg" alt="Stand Fan">
+              <!-- PLACE STAND FAN IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Stand Fans</h3>
+              <p class="product-desc">Portable fans with adjustable heights and speeds for spot cooling. Perfect for any room in your home.</p>
+              <div class="product-price">
+                <span>From ₹1,099</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="product-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="product-img">
+              <!-- Replace with product image -->
+              <img src="water-heater-rod.jpg" alt="Water Heater Rod">
+              <!-- PLACE WATER HEATER ROD IMAGE HERE -->
+            </div>
+            <div class="product-body">
+              <h3 class="product-title">Water Heater Rods</h3>
+              <p class="product-desc">Safe, corrosion-resistant rods for quick water heating in buckets or small tanks. Energy efficient and reliable.</p>
+              <div class="product-price">
+                <span>From ₹499</span>
+                <button class="product-btn">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="section services" id="services">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        We provide a range of convenient services to make your daily life easier. From financial transactions to document processing, we've got you covered.
+      </p>
+      
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <i class="fas fa-exchange-alt service-icon"></i>
+          <h3 class="service-title">Money Transfer</h3>
+          <p>Send and receive money instantly across India with minimal charges. Fast, secure, and reliable transfers.</p>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <i class="fas fa-laptop-code service-icon"></i>
+          <h3 class="service-title">Net Banking Assistance</h3>
+          <p>Set up or troubleshoot online banking on your mobile or computer. Expert guidance for all your digital banking needs.</p>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <i class="fas fa-fingerprint service-icon"></i>
+          <h3 class="service-title">Aadhaar-Based Cash Withdrawal</h3>
+          <p>Withdraw cash from any linked bank account using your Aadhaar number—no ATM card needed. Convenient and secure.</p>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <i class="fas fa-id-card service-icon"></i>
+          <h3 class="service-title">Document Lamination</h3>
+          <p>Protect your certificates, ID cards, and photos with crisp, clear lamination. Preserve important documents for years.</p>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <i class="fas fa-copy service-icon"></i>
+          <h3 class="service-title">A4-Size Photocopying</h3>
+          <p>Fast, high-quality black & white or color copies for all your documents. Quick service with excellent results.</p>
+        </div>
+        
+        <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+          <i class="fas fa-headset service-icon"></i>
+          <h3 class="service-title">Technical Support</h3>
+          <p>Get expert assistance for your devices and applications. We help you troubleshoot and resolve technical issues efficiently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">What Our Customers Say</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Don't just take our word for it. Here's what our valued customers have to say about their experience with Vivek Communication.
+      </p>
+      
+      <!-- Swiper Testimonials -->
+      <div class="swiper testimonials-swiper" data-aos="fade-up" data-aos-delay="200">
+        <div class="swiper-wrapper">
+          <!-- Testimonial 1 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-right testimonial-quote"></i>
+              <p class="testimonial-text">
+                "I've been shopping at Vivek Communication for all my electronic needs for the past two years. Their products are reliable, and the staff is always helpful. The money transfer service has been a lifesaver on multiple occasions!"
+              </p>
+              <div class="testimonial-author">
+                <div class="author-img">
+                  <!-- Replace with customer image -->
+                  <img src="rajesh.png" alt="Customer 1">
+                  <!-- PLACE CUSTOMER 1 IMAGE HERE -->
+                </div>
+                <div class="author-info">
+                  <h4>Rajesh Kumar</h4>
+                  <p>Regular Customer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-right testimonial-quote"></i>
+              <p class="testimonial-text">
+                "The quality of mobile accessories here is exceptional. I purchased a USB Type-C cable over six months ago, and it's still working perfectly despite daily use. Their prices are competitive, and the service is always friendly."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-img">
+                  <!-- Replace with customer image -->
+                  <img src="priya.png" alt="Customer 2">
+                  <!-- PLACE CUSTOMER 2 IMAGE HERE -->
+                </div>
+                <div class="author-info">
+                  <h4>Priya Sharma</h4>
+                  <p>Tech Enthusiast</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-right testimonial-quote"></i>
+              <p class="testimonial-text">
+                "I was struggling with setting up net banking on my new phone, but the team at Vivek Communication guided me through the process step by step. Their patience and expertise were impressive. Highly recommend their services!"
+              </p>
+              <div class="testimonial-author">
+                <div class="author-img">
+                  <!-- Replace with customer image -->
+                  <img src="rajesh.png" alt="Customer 3">
+                  <!-- PLACE CUSTOMER 3 IMAGE HERE -->
+                </div>
+                <div class="author-info">
+                  <h4>Anand Verma</h4>
+                  <p>Satisfied Client</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 4 -->
+          <div class="swiper-slide">
+            <div class="testimonial-card">
+              <i class="fas fa-quote-right testimonial-quote"></i>
+              <p class="testimonial-text">
+                "The Aadhaar-based cash withdrawal service is incredibly convenient. No need to hunt for ATMs anymore! The staff is efficient and the process is quick. Vivek Communication has become my go-to place for all electronic needs."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-img">
+                  <!-- Replace with customer image -->
+                  <img src="priya.png" alt="Customer 4">
+                  <!-- PLACE CUSTOMER 4 IMAGE HERE -->
+                </div>
+                <div class="author-info">
+                  <h4>Meera Patel</h4>
+                  <p>Loyal Customer</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+      <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Have questions or need assistance? Reach out to us through any of the channels below or visit our store.
+      </p>
+      
+      <div class="contact-container">
+        <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt contact-icon"></i>
+            <div class="contact-text">
+              <h4>Our Location</h4>
+              <p>Matkota (Fatehpur Chowk) post office/ police station, Yoggapati, West Champaran </p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone-alt contact-icon"></i>
+            <div class="contact-text">
+              <h4>Phone Number</h4>
+              <p>+91 7739180658<br>+91 7909086343</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope contact-icon"></i>
+            <div class="contact-text">
+              <h4>Email Address</h4>
+              <p>vivekkumarpandey1234@gmail.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-clock contact-icon"></i>
+            <div class="contact-text">
+              <h4>Business Hours</h4>
+              <p>Monday - Saturday: 8:00 AM - 8:00 PM<br>Sunday: OFF</p>
+            </div>
+          </div>
+          
+          <div class="contact-social">
+            <a href="https://instagram.com/vivekkumarpandey0001" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@vkp1212" class="social-icon"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/+917739180658" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+ <input type="hidden" name="access_key" value="7477682e-3fb3-4e91-bfa8-b0253b68c300">
+             <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+             <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" name="tel" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea name="message" class="form-control" placeholder="How can we help you?"required></textarea>
+          </div>
+          
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</form>
+       </div> 
+ </section>
+
+  <!-- Footer 7477682e-3fb3-4e91-bfa8-bO253b68c300 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#" class="logo">
+            <i class="fas fa-mobile-alt"></i>
+            Vivek Communication
+          </a>
+          <p>Your one-stop destination for quality products and convenient services, all under one roof! We provide the best electronic accessories and daily services to make your life easier.</p>
+        </div>
+        
+        <div class="footer-links-container">
+          <h3 class="footer-heading">Quick Links</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#home">Home</a></li>
+            <li class="footer-link"><a href="#features">About Us</a></li>
+            <li class="footer-link"><a href="#products">Products</a></li>
+            <li class="footer-link"><a href="#services">Services</a></li>
+            <li class="footer-link"><a href="#testimonials">Testimonials</a></li>
+            <li class="footer-link"><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links-container">
+          <h3 class="footer-heading">Our Products</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="#products">Mobile Accessories</a></li>
+            <li class="footer-link"><a href="#products">Electrical Items</a></li>
+            <li class="footer-link"><a href="#products">LED Bulbs</a></li>
+            <li class="footer-link"><a href="#products">Fans & Coolers</a></li>
+            <li class="footer-link"><a href="#products">Computer Accessories</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links-container">
+          <h3 class="footer-heading">Contact Info</h3>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Matkota (Fatehpur Chowk) post office/ police station, Yoggapati, West Champaran</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <span>+91 7739180658</span>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <span>vivekkumarpandey1234@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Vivek Communication. All Rights Reserved | Designed with <i class="fas fa-heart" style="color: var(--danger);"></i></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script>
+    // Initialize AOS Animation
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+    
+    // Header Scroll Effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+    
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      menuToggle.querySelector('i').classList.toggle('fa-bars');
+      menuToggle.querySelector('i').classList.toggle('fa-times');
+    });
+    
+    // Close mobile menu when clicking on a menu link
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('active');
+        menuToggle.querySelector('i').classList.add('fa-bars');
+        menuToggle.querySelector('i').classList.remove('fa-times');
+      });
+    });
+    
+    // Product Tabs
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const productContents = document.querySelectorAll('.product-content');
+    
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        tabBtns.forEach(b => b.classList.remove('active'));
+        productContents.forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Show corresponding content
+        const tabId = btn.getAttribute('data-tab');
+        document.getElementById(`${tabId}-content`).classList.add('active');
+      });
+    });
+    
+    // Initialize Swiper Testimonials
+    const testimonialSwiper = new Swiper('.testimonials-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      }
+    });
+    
+    // Back to Top Button
+    const backToTopBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+       
+  </script>
+</body>
+</html>
